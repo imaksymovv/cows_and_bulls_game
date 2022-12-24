@@ -144,8 +144,10 @@
   <ItemGroup>
     <ClInclude Include="CowsAndBullsAnswer.h" />
     <ClInclude Include="CowsAndBullsComputerHelper.h" />
+    <ClInclude Include="CowsAndBullsComputerPlayer.h" />
     <ClInclude Include="CowsAndBullsPlayer.h" />
     <ClInclude Include="Mixnumbers.h" />
+    <ClInclude Include="substitute_creating.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

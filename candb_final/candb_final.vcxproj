@@ -141,6 +141,10 @@
   <ItemGroup>
     <ClCompile Include="candb_final.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CowsAndBullsComputerHelper.h" />
+    <ClInclude Include="Mixnumbers.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -1,25 +1,12 @@
 ﻿#include <iostream>
-
+#include "CowsAndBullsComputerHelper.h"
+#include "Mixnumbers.h"
 
 struct CowsAndBullsAnswer {
     unsigned char cows;
     unsigned char bulls;
 };
 
-struct CowsAndBullsComputerHelper {
-    unsigned char computer[4];
-    CowsAndBullsComputerHelper& operator=(const CowsAndBullsComputerHelper& c)
-    {
-        for (size_t i = 0; i < 4; ++i)
-        {
-            this->computer[i] = c.computer[i];
-        }
-        return *this;
-    }
-
-    CowsAndBullsComputerHelper()
-    {}
-};
 
 unsigned char substitute_creating(CowsAndBullsComputerHelper r) {
     unsigned char substitute = 0;
@@ -42,46 +29,6 @@ unsigned char substitute_creating(CowsAndBullsComputerHelper r) {
     return substitute;
 }
 
-class Mixnumbers {
-public:
-    Mixnumbers(CowsAndBullsComputerHelper r) {
-        for (size_t j = 0; j < 4; j++) {
-            all_numbers[j][0] = r.computer[j];
-        }
-        for (size_t i = 1; i < 24; i++) {
-            for (size_t j = 0; j < 4; j++) {
-                all_numbers[j][i] = all_numbers[j][i - 1];
-            }
-            if (i == 5) {
-                all_numbers[0][i] = all_numbers[3][i - 1];
-                all_numbers[3][i] = all_numbers[0][i - 1];
-            }
-            if (i == 11 || i == 17) {
-                all_numbers[0][i] = all_numbers[2][i - 1];
-                all_numbers[2][i] = all_numbers[0][i - 1];
-            }
-            else if (i % 2 != 0) {
-                all_numbers[1][i] = all_numbers[2][i - 1];
-                all_numbers[2][i] = all_numbers[1][i - 1];
-            }
-            else {
-                all_numbers[2][i] = all_numbers[3][i - 1];
-                all_numbers[3][i] = all_numbers[2][i - 1];
-            }
-        }
-    }
-    CowsAndBullsComputerHelper reshuffle() {
-        CowsAndBullsComputerHelper r;
-        for (size_t i = 0; i < 4; i++) {
-            r.computer[i] = all_numbers[i][counter_for_reshuffle];
-        }
-        counter_for_reshuffle++;
-        return r;
-    }
-private:
-    unsigned char all_numbers[4][24];
-    int counter_for_reshuffle = 1;
-};
 
 class CowsAndBullsPlayer {
 public:

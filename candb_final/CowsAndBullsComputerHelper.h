@@ -2,6 +2,7 @@
 
 struct CowsAndBullsComputerHelper {
     unsigned char computer[4];
+    //Function that saves previous number
     CowsAndBullsComputerHelper& operator=(const CowsAndBullsComputerHelper& c)
     {
         for (size_t i = 0; i < 4; ++i)

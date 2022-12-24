@@ -145,6 +145,7 @@
     <ClInclude Include="CowsAndBullsAnswer.h" />
     <ClInclude Include="CowsAndBullsComputerHelper.h" />
     <ClInclude Include="CowsAndBullsComputerPlayer.h" />
+    <ClInclude Include="CowsAndBullsLivePlayer.h" />
     <ClInclude Include="CowsAndBullsPlayer.h" />
     <ClInclude Include="Mixnumbers.h" />
     <ClInclude Include="substitute_creating.h" />

@@ -1,6 +1,7 @@
 #pragma once
 #include "CowsAndBullsComputerHelper.h"
 
+//Function that generates substitute for number
 unsigned char substitute_creating(CowsAndBullsComputerHelper r) {
     unsigned char substitute = 0;
     bool numbers_are_not_same = false;

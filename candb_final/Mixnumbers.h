@@ -3,6 +3,7 @@
 
 class Mixnumbers {
 public:
+    //Constructor that generates all possible permutations of the number
     Mixnumbers(CowsAndBullsComputerHelper r) {
         for (size_t j = 0; j < 4; j++) {
             all_numbers[j][0] = r.computer[j];
@@ -29,6 +30,7 @@ public:
             }
         }
     }
+    //Function that returning new permutation of the number
     CowsAndBullsComputerHelper reshuffle() {
         CowsAndBullsComputerHelper r;
         for (size_t i = 0; i < 4; i++) {

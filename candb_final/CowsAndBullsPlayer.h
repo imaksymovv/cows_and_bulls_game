@@ -3,6 +3,7 @@
 
 class CowsAndBullsPlayer {
 public:
+    //Function that returning number of bulls and cows 
     CowsAndBullsAnswer Ask(unsigned char num[4]) const {
         CowsAndBullsAnswer counter = { };
         for (int i = 0; i < 4; i++) {
@@ -19,6 +20,7 @@ public:
         }
         return counter;
     }
+    //overloaded operator
     unsigned int operator[](size_t index) const {
         return number[index];
     }

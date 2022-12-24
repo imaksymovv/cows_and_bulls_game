@@ -4,13 +4,7 @@
 #include "CowsAndBullsAnswer.h"
 #include "CowsAndBullsPlayer.h"
 #include "CowsAndBullsComputerPlayer.h"
-
-
-
-class CowsAndBullsLivePlayer : public CowsAndBullsPlayer {
-public:
-    explicit CowsAndBullsLivePlayer(unsigned char n[4]) : CowsAndBullsPlayer(n) {}
-};
+#include "CowsAndBullsLivePlayer.h"
 
 int main() {
     srand(time(NULL));

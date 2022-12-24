@@ -7,18 +7,20 @@
 
 class CowsAndBullsComputerPlayer : public CowsAndBullsPlayer {
 public:
+    //Destructor of the class
     ~CowsAndBullsComputerPlayer() {
         if (first_number != nullptr) {
             delete first_number;
         }
     }
-
+    //Function that means that the number is guessed
     void number_guessed() {
         if (first_number != nullptr) {
             delete first_number;
             first_number = nullptr;
         }
     }
+    //Funciton that generates number with already founded bulls
     CowsAndBullsComputerHelper number_including_bulls_creating() {
         CowsAndBullsComputerHelper r;
         unsigned int index_for_false_numbers = 0;
@@ -60,7 +62,7 @@ public:
         }
         return r;
     }
-
+    //Function that guessing number
     CowsAndBullsComputerHelper computer_guessing(CowsAndBullsAnswer answer) {
         CowsAndBullsComputerHelper pc_number;
         pc_number = previous;
@@ -307,7 +309,7 @@ public:
         previous = pc_number;
         return pc_number;
     }
-
+    //Constructor that saves number which computer need to guess
     explicit CowsAndBullsComputerPlayer(unsigned char n[4]) : CowsAndBullsPlayer(n) {}
 
 private:

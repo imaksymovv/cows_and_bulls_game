@@ -14,12 +14,7 @@ public:
         }
     }
     //Function that means that the number is guessed
-    void number_guessed() {
-        if (first_number != nullptr) {
-            delete first_number;
-            first_number = nullptr;
-        }
-    }
+    void number_guessed();
     //Funciton that generates number with already founded bulls
     CowsAndBullsComputerHelper number_including_bulls_creating() {
         CowsAndBullsComputerHelper r;

@@ -140,9 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="candb_final.cpp" />
+    <ClCompile Include="CowsAndBullsComputerHelper.cpp" />
     <ClCompile Include="CowsAndBullsComputerPlayer.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="CowsAndBullsLivePlayer.cpp" />
+    <ClCompile Include="CowsAndBullsPlayer.cpp" />
+    <ClCompile Include="Mixnumbers.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CowsAndBullsAnswer.h" />

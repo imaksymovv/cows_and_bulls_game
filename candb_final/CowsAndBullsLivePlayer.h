@@ -5,5 +5,5 @@ class CowsAndBullsLivePlayer : public CowsAndBullsPlayer {
 public:
     //Constructor that saves number, which player need to guess
     //Contructor recieves variable "n" - number, which player need to guess
-    explicit CowsAndBullsLivePlayer(unsigned char n[4]) : CowsAndBullsPlayer(n) {}
+    explicit CowsAndBullsLivePlayer(unsigned char n[4]);
 };

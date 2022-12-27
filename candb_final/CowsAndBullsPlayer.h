@@ -3,7 +3,8 @@
 
 class CowsAndBullsPlayer {
 public:
-    //Function that returning number of bulls and cows 
+    //Function that returns number of bulls and cows 
+    //Function recieves variable "num" - number of one of the players
     CowsAndBullsAnswer Ask(unsigned char num[4]) const {
         CowsAndBullsAnswer counter = { };
         for (int i = 0; i < 4; i++) {

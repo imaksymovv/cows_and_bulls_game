@@ -38,9 +38,6 @@
     <ClInclude Include="CowsAndBullsComputerPlayer.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="substitute_creating.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="CowsAndBullsLivePlayer.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>

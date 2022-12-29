@@ -1,9 +1,9 @@
 #pragma once
 #include "CowsAndBullsAnswer.h"
-
+//This class includes all methods to help both players give answers about number of bulls and cows.
 class CowsAndBullsPlayer {
 public:
-    //Function that returns number of bulls and cows 
+    //Function that analyses current player number and returns number of bulls and cows. 
     //Function recieves variable "num" - number of one of the players
     CowsAndBullsAnswer Ask(unsigned char num[4]) const;
 

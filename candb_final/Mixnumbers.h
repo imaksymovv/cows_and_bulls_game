@@ -1,6 +1,6 @@
 #pragma once
 #include "CowsAndBullsComputerHelper.h"
-
+//This class includes all methods to do all permutations for current computer number and then return them.
 class Mixnumbers {
 public:
     //Constructor that generates all possible permutations of the number

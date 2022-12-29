@@ -2,7 +2,7 @@
 #include "CowsAndBullsComputerPlayer.h"
 
 namespace {
-    //Function that generates substitute for number
+    //Function that generates substitute for number. This substitute is a number that is different from all other numbers in the current number, and it is needed to help computer guess the number.
     //Function recieves variable "r" of structure CowsAndBullsComputerHelper, that includes variable "computer" to generate substitute for current number
     //Function returns substitute for current number
     unsigned char substitute_creating(CowsAndBullsComputerHelper r) {

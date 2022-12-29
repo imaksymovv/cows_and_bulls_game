@@ -4,20 +4,21 @@
 #include "CowsAndBullsPlayer.h"
 #include "Mixnumbers.h"
 
+//This class includes all needed methods for computer to guess player's number.
 class CowsAndBullsComputerPlayer : public CowsAndBullsPlayer {
 public:
-    //Destructor of the class
     ~CowsAndBullsComputerPlayer();
 
-    //Function that means that the number is guessed
+    //Function that deletes memory for variable "first number"
     void number_guessed();
 
-    //Funciton that generates number with already founded bulls.
+    //Funciton that generates number by including already founded bulls in it.
     //Function returns generated computer number with already founded bulls.
     CowsAndBullsComputerHelper number_including_bulls_creating();
 
-    //Function that guessing number
+    //This function analyzes number of cows and bulls for current computer number, then changing this number and returns it.
     //Function returns current computer number
+    //Function recieves variable "answer" of structure CowsAndBullsAnswer, that includes variables for the number of cows and bulls for current number
     CowsAndBullsComputerHelper computer_guessing(CowsAndBullsAnswer answer);
 
     //Constructor that saves number which computer need to guess

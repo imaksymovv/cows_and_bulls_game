@@ -1,15 +1,22 @@
 #pragma once
 #include "CowsAndBullsComputerHelper.h"
-//This class includes all methods to do all permutations for current computer number and then return them.
+
+/*******************************************************************************
+* This is the class that doing permutations for the number
+*******************************************************************************/
 class Mixnumbers {
 public:
-    //Constructor that generates all possible permutations of the number
-    //Constructor recieves variable "r" of structure CowsAndBullsComputerHelper, that includes variable "computer" - computer number that needs to be permutated
+
+    /*******************************************************************************
+    * Constructor recieves "r", that includes "current_computer_number" - computer number that needs to be permutated
+    *******************************************************************************/
     Mixnumbers(CowsAndBullsComputerHelper r);
 
-    //Function that returns new permutation of the number
+    /*******************************************************************************
+    * Function that returns new permutation of the number
+    *******************************************************************************/
     CowsAndBullsComputerHelper reshuffle();
 private:
-    unsigned char all_numbers[4][24];
-    int counter_for_reshuffle = 1;
+    unsigned char all_numbers[4][24]; ///< stores permutations for the number
+    int counter_for_reshuffle = 1; ///< counter for returning all permutations
 };

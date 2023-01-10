@@ -4,53 +4,69 @@
 #include "CowsAndBullsPlayer.h"
 #include "Mixnumbers.h"
 
-//This class includes all needed methods for computer to guess player's number.
+/*******************************************************************************
+* This is the class for computer player for the "Cows and Bulls" game
+*******************************************************************************/
 class CowsAndBullsComputerPlayer : public CowsAndBullsPlayer {
 public:
     ~CowsAndBullsComputerPlayer();
 
-    //Function that deletes memory for variable "first number"
-    void number_guessed();
+    /*******************************************************************************
+    * Function that deletes memory for variable "first number"
+    *******************************************************************************/
+    void memory_cleaner();
 
-    //Funciton that generates number by including already founded bulls in it.
-    //Function returns generated computer number with already founded bulls.
+    /*******************************************************************************
+    * Funciton that generates number with already founded bulls and not used numbers
+    * 
+    * Function returns generated computer number with already founded bulls.
+    /*******************************************************************************/
     CowsAndBullsComputerHelper number_including_bulls_creating();
 
-    //This function analyzes number of cows and bulls for current computer number, then changing this number and returns it.
-    //Function returns current computer number
-    //Function recieves variable "answer" of structure CowsAndBullsAnswer, that includes variables for the number of cows and bulls for current number
+    /*******************************************************************************
+    * This function analyzes number of cows and bulls for current number, then changing this number and returns it.
+    * 
+    * Function returns current computer number
+    * 
+    * Function recieves "answer", that includes the number of cows and bulls for current number
+    *******************************************************************************/
     CowsAndBullsComputerHelper computer_guessing(CowsAndBullsAnswer answer);
 
-    //Constructor that saves number which computer need to guess
-    //Contructor recieves variable "n" - number, which computer need to guess
+    /*******************************************************************************
+    * Constructor that saves number which player need to guess
+    * 
+    * Contructor recieves variable "n" - number, which player need to guess
+    *******************************************************************************/
     explicit CowsAndBullsComputerPlayer(unsigned char n[4]);
 
 private:
-    unsigned char bulls_before_cows_part = 0;
-    unsigned char number_of_bulls = 0;
-    unsigned char number_of_bulls1 = 0;
-    unsigned char memory_for_number[4];
-    unsigned char memory_for_bulls[4];
-    unsigned char founded_bulls[4];
-    unsigned char cows_checker;
-    CowsAndBullsComputerHelper previous;
-    unsigned char number_of_cows = 0;
-    bool number_have_bulls = false;
-    bool searching_for_cows_started = false;
-    bool start_substitution = false;
-    bool bull_founded = false;
-    bool cows_founded = false;
-    unsigned char substitute = 0;
-    int searching_for_bulls_index = -1;
-    int index_for_substitution = -1;
-    int index_when_cows_founded = -1;
-    int index_when_bulls_founded = -1;
-    bool false_numbers[9];
-    unsigned char new_bull = 0;
-    bool cow_number_substitute = false;
-    bool number_includes_bull_or_cow = false;
-    bool number_created = false;
-    bool any_cows_or_bulls = true;
-    Mixnumbers* first_number = nullptr;
-    unsigned char number_doesnt_include_cORb = 0;
+    unsigned char bulls_before_cows_part = 0; ///< stores the number of bulls on the start
+    unsigned char number_of_bulls = 0; ///< stores the number of bulls after at least 1 bulls founded
+    unsigned char number_of_bulls1 = 0; ///< stores the number of bulls when bull is detected
+    unsigned char memory_for_number[4]; ///< stores computer number before all actions
+    unsigned char memory_for_bulls[4]; ///< stores already founded bulls
+    unsigned char founded_bulls[4]; ///< stores placement of each bull
+    unsigned char cows_checker; ///< stores founded cow
+    CowsAndBullsComputerHelper previous; ///< stores previous number
+    unsigned char number_of_cows = 0; ///< stores number of cows
+    bool number_have_bulls = false; ///< when the bull in the first number is detected, becomes true
+    bool searching_for_cows_started = false; ///< when searching for the first bulls is ended, becomes true
+    bool start_substitution = false; ///< when the cow is detected, becomes true
+    bool bull_founded = false; ///< when the bull is detected, becomes true
+    bool cows_founded = false; ///< when the cow appears, becomes true
+    unsigned char substitute = 0; ///< substitute for the number
+    int searching_for_bulls_index = -1; ///< index for the loop looking for the bulls
+    int index_for_substitution = -1; ///< index for the loop in which the number is substituted
+    int index_when_cows_founded = -1; ///< index for the loop looking for the cows
+    int index_when_bulls_founded = -1; ///< index for the loop loking for the bulls in first number
+    bool false_numbers[9]; ///< array, that stores incorrect numbers
+    unsigned char new_bull = 0; /**<if during the search for a bull in the first number, the substitute turns out to
+                                be a bull, then this variable is incremented and added to the total number of bulls*/
+
+    bool cow_number_substitute = false; ///< becomes true to create number, which won't be the same with cows_checker
+    bool number_includes_bull_or_cow = false; ///< when bulls or cows in first number are detected, becomes true
+    bool any_cows_or_bulls = true; ///< if the first number doesn't contains any cows or bulls, becomes false
+    Mixnumbers* first_number = nullptr; ///< needs to do permutations for number only one time
+    unsigned char number_doesnt_include_cORb = 0; /**< needs to fill false_numbers with false after generating first
+                                                  number*/
 };

@@ -54,15 +54,15 @@ int main() {
     do {
         t = p1.computer_guessing(p);
         for (size_t i = 0; i < 4; i++) {
-            std::cout << static_cast<short>(t.computer[i]);
+            std::cout << static_cast<short>(t.current_computer_number[i]);
         }
         std::cout << std::endl;
-        p = p2.Ask(t.computer);
+        p = p2.Ask(t.current_computer_number);
     } while (p.bulls != 4);
-    p1.number_guessed();
+    p1.memory_cleaner();
     std::cout << "computer guessed your number! it is: ";
     for (size_t i = 0; i < 4; i++) {
-        std::cout << static_cast<short>(t.computer[i]);
+        std::cout << static_cast<short>(t.current_computer_number[i]);
     }
     return 0;
 }

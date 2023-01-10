@@ -5,7 +5,7 @@ CowsAndBullsComputerHelper& CowsAndBullsComputerHelper::operator=(const CowsAndB
 {
     for (size_t i = 0; i < 4; ++i)
     {
-        this->computer[i] = c.computer[i];
+        this->current_computer_number[i] = c.current_computer_number[i];
     }
     return *this;
 }

@@ -3,7 +3,7 @@
 
 Mixnumbers::Mixnumbers(CowsAndBullsComputerHelper r) {
     for (size_t j = 0; j < 4; j++) {
-        all_numbers[j][0] = r.computer[j];
+        all_numbers[j][0] = r.current_computer_number[j];
     }
     for (size_t i = 1; i < 24; i++) {
         for (size_t j = 0; j < 4; j++) {
@@ -31,7 +31,7 @@ Mixnumbers::Mixnumbers(CowsAndBullsComputerHelper r) {
 CowsAndBullsComputerHelper Mixnumbers::reshuffle() {
     CowsAndBullsComputerHelper r;
     for (size_t i = 0; i < 4; i++) {
-        r.computer[i] = all_numbers[i][counter_for_reshuffle];
+        r.current_computer_number[i] = all_numbers[i][counter_for_reshuffle];
     }
     counter_for_reshuffle++;
     return r;

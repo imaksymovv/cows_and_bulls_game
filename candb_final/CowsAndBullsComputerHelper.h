@@ -1,7 +1,10 @@
 #pragma once
-//This structure stores current computer number and also saves previous variation of this number.
+
+/*******************************************************************************
+* This structure stores number to guess for cows and bulls game.
+*******************************************************************************/
 struct CowsAndBullsComputerHelper {
-    unsigned char computer[4];
+    unsigned char current_computer_number[4]; ///< stores current computer number
 
     CowsAndBullsComputerHelper& operator=(const CowsAndBullsComputerHelper& c);
 

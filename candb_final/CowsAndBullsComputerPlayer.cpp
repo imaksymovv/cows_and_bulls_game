@@ -2,16 +2,22 @@
 #include "CowsAndBullsComputerPlayer.h"
 
 namespace {
-    //Function that generates substitute for number. This substitute is a number that is different from all other numbers in the current number, and it is needed to help computer guess the number.
-    //Function recieves variable "r" of structure CowsAndBullsComputerHelper, that includes variable "computer" to generate substitute for current number
-    //Function returns substitute for current number
+    /*******************************************************************************
+    * Function that generates substitute for number.
+    * 
+    * This substitute is a number that is different from all other numbers in the number.
+    * 
+    * Function recieves "r", that includes "current_computer_number" to generate substitute for the number
+    * 
+    * Function returns substitute for current number
+    *******************************************************************************/
     unsigned char substitute_creating(CowsAndBullsComputerHelper r) {
         unsigned char substitute = 0;
         bool numbers_are_not_same = false;
         for (size_t i = 0; i < 9; i++) {
             substitute = i + 1;
             for (size_t j = 0; j < 4; j++) {
-                if (substitute == r.computer[j]) {
+                if (substitute == r.current_computer_number[j]) {
                     numbers_are_not_same = false;
                     break;
                 }
@@ -27,7 +33,7 @@ namespace {
     }
 };
 
-void CowsAndBullsComputerPlayer::number_guessed() {
+void CowsAndBullsComputerPlayer::memory_cleaner() {
     if (first_number != nullptr) {
         delete first_number;
         first_number = nullptr;
@@ -45,7 +51,7 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::number_including_bulls_cr
     unsigned int index_for_false_numbers = 0;
     for (size_t i = 0; i < 4; i++) {
         if (founded_bulls[i] == 1) {
-            r.computer[i] = memory_for_bulls[i];
+            r.current_computer_number[i] = memory_for_bulls[i];
         }
     }
     for (size_t i = 0; i < 4; i++) {
@@ -53,9 +59,9 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::number_including_bulls_cr
             index_for_false_numbers = 0;
             if (cow_number_substitute == true) {
                 for (size_t j = 0; j < 9; j++) {
-                    r.computer[i] = index_for_false_numbers + 1;
+                    r.current_computer_number[i] = index_for_false_numbers + 1;
                     index_for_false_numbers++;
-                    if (false_numbers[j] == false && r.computer[i] != cows_checker) {
+                    if (false_numbers[j] == false && r.current_computer_number[i] != cows_checker) {
                         false_numbers[j] = true;
                         break;
                     }
@@ -63,7 +69,7 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::number_including_bulls_cr
             }
             else {
                 for (size_t j = 0; j < 9; j++) {
-                    r.computer[i] = index_for_false_numbers + 1;
+                    r.current_computer_number[i] = index_for_false_numbers + 1;
                     index_for_false_numbers++;
                     if (false_numbers[j] == false) {
                         false_numbers[j] = true;
@@ -75,7 +81,7 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::number_including_bulls_cr
     }
     for (size_t i = 0; i < 4; i++) {
         if (founded_bulls[i] != 1) {
-            index_for_false_numbers = r.computer[i] - 1;
+            index_for_false_numbers = r.current_computer_number[i] - 1;
             false_numbers[index_for_false_numbers] = false;
         }
     }
@@ -101,7 +107,7 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::computer_guessing(CowsAnd
                 }
             }
             for (size_t i = 0; i < 4; i++) {
-                memory_for_number[i] = pc_number.computer[i];
+                memory_for_number[i] = pc_number.current_computer_number[i];
             }
         }
         else {
@@ -134,7 +140,7 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::computer_guessing(CowsAnd
                     for (size_t i = 0; i < 4; i++) {
                         index_for_false_numbers = 0;
                         for (size_t j = 0; j < 9; j++) {
-                            pc_number.computer[i] = index_for_false_numbers + 1;
+                            pc_number.current_computer_number[i] = index_for_false_numbers + 1;
                             index_for_false_numbers++;
                             if (false_numbers[j] == false) {
                                 false_numbers[j] = true;
@@ -156,7 +162,7 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::computer_guessing(CowsAnd
                 }
             }
             for (size_t i = 0; i < 4; i++) {
-                memory_for_number[i] = pc_number.computer[i];
+                memory_for_number[i] = pc_number.current_computer_number[i];
             }
             previous = pc_number;
             return pc_number;
@@ -174,7 +180,7 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::computer_guessing(CowsAnd
             false_numbers[index_for_false_numbers] = true;
         }
         if (answer.bulls > number_of_bulls) {
-            memory_for_bulls[searching_for_bulls_index] = pc_number.computer[searching_for_bulls_index];
+            memory_for_bulls[searching_for_bulls_index] = pc_number.current_computer_number[searching_for_bulls_index];
             founded_bulls[searching_for_bulls_index] = 1;
 
             index_for_false_numbers = memory_for_bulls[searching_for_bulls_index] - 1;
@@ -182,20 +188,20 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::computer_guessing(CowsAnd
             new_bull++;
         }
         for (size_t i = 0; i < 4; i++) {
-            pc_number.computer[i] = memory_for_number[i];
+            pc_number.current_computer_number[i] = memory_for_number[i];
         }
         searching_for_bulls_index++;
         if (searching_for_bulls_index == 4) {
             bulls_before_cows_part = answer.bulls + new_bull;
             pc_number = number_including_bulls_creating();
             for (size_t i = 0; i < 4; i++) {
-                memory_for_number[i] = pc_number.computer[i];
+                memory_for_number[i] = pc_number.current_computer_number[i];
             }
             substitute = substitute_creating(pc_number);
             previous = pc_number;
             return pc_number;
         }
-        pc_number.computer[searching_for_bulls_index] = substitute;
+        pc_number.current_computer_number[searching_for_bulls_index] = substitute;
     }
     else {
         if (searching_for_cows_started == false) {
@@ -209,7 +215,7 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::computer_guessing(CowsAnd
             start_substitution = false;
             cows_founded = false;
             for (size_t i = 0; i < 4; i++) {
-                memory_for_number[i] = pc_number.computer[i];
+                memory_for_number[i] = pc_number.current_computer_number[i];
             }
         }
         if (bull_founded == true) {
@@ -219,10 +225,10 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::computer_guessing(CowsAnd
                 substitute = substitute_creating(pc_number);
             }
             for (size_t i = 0; i < 4; i++) {
-                pc_number.computer[i] = memory_for_number[i];
+                pc_number.current_computer_number[i] = memory_for_number[i];
             }
             if (answer.bulls < number_of_bulls1) {
-                memory_for_bulls[index_when_bulls_founded] = pc_number.computer[index_when_bulls_founded];
+                memory_for_bulls[index_when_bulls_founded] = pc_number.current_computer_number[index_when_bulls_founded];
                 founded_bulls[index_when_bulls_founded] = 1;
 
                 index_for_false_numbers = memory_for_bulls[index_when_bulls_founded] - 1;
@@ -241,7 +247,7 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::computer_guessing(CowsAnd
                 if (index_when_bulls_founded == 4) {
                     pc_number = number_including_bulls_creating();
                     for (size_t i = 0; i < 4; i++) {
-                        memory_for_number[i] = pc_number.computer[i];
+                        memory_for_number[i] = pc_number.current_computer_number[i];
                     }
                     substitute = substitute_creating(pc_number);
                     bull_founded = false;
@@ -250,7 +256,7 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::computer_guessing(CowsAnd
                     return pc_number;
                 }
             } while (founded_bulls[index_when_bulls_founded] == 1);
-            pc_number.computer[index_when_bulls_founded] = substitute;
+            pc_number.current_computer_number[index_when_bulls_founded] = substitute;
             previous = pc_number;
             return pc_number;
         }
@@ -263,10 +269,10 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::computer_guessing(CowsAnd
             cow_number_substitute = true;
             do {
                 pc_number = number_including_bulls_creating();
-            } while (pc_number.computer[0] == cows_checker || pc_number.computer[1] == cows_checker || pc_number.computer[2] == cows_checker || pc_number.computer[3] == cows_checker);
+            } while (pc_number.current_computer_number[0] == cows_checker || pc_number.current_computer_number[1] == cows_checker || pc_number.current_computer_number[2] == cows_checker || pc_number.current_computer_number[3] == cows_checker);
             cow_number_substitute = false;
             for (size_t i = 0; i < 4; i++) {
-                memory_for_number[i] = pc_number.computer[i];
+                memory_for_number[i] = pc_number.current_computer_number[i];
             }
             index_when_cows_founded = -1;
             cows_founded = false;
@@ -277,7 +283,7 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::computer_guessing(CowsAnd
                 number_of_cows = answer.cows;
             }
             for (size_t i = 0; i < 4; i++) {
-                pc_number.computer[i] = memory_for_number[i];
+                pc_number.current_computer_number[i] = memory_for_number[i];
             }
             do {
                 index_when_cows_founded++;
@@ -288,13 +294,13 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::computer_guessing(CowsAnd
                     return pc_number;
                 }
             } while (founded_bulls[index_when_cows_founded] == 1);
-            pc_number.computer[index_when_cows_founded] = substitute;
+            pc_number.current_computer_number[index_when_cows_founded] = substitute;
             previous = pc_number;
             return pc_number;
         }
         if (start_substitution == true) {
             for (size_t i = 0; i < 4; i++) {
-                pc_number.computer[i] = memory_for_number[i];
+                pc_number.current_computer_number[i] = memory_for_number[i];
             }
             do {
                 index_for_substitution++;
@@ -305,7 +311,7 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::computer_guessing(CowsAnd
                     return pc_number;
                 }
             } while (founded_bulls[index_for_substitution] == 1);
-            pc_number.computer[index_for_substitution] = cows_checker;
+            pc_number.current_computer_number[index_for_substitution] = cows_checker;
             index_for_substitution++;
             previous = pc_number;
             return pc_number;
@@ -314,14 +320,14 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::computer_guessing(CowsAnd
         if (answer.cows == 0 && bull_founded == false && cows_founded == false && start_substitution == false) {
             for (size_t i = 0; i < 4; i++) {
                 if (founded_bulls[i] != 1) {
-                    index_for_false_numbers = pc_number.computer[i] - 1;
+                    index_for_false_numbers = pc_number.current_computer_number[i] - 1;
                     false_numbers[index_for_false_numbers] = true;
                 }
             }
             pc_number = number_including_bulls_creating();
             substitute = substitute_creating(pc_number);
             for (size_t i = 0; i < 4; i++) {
-                memory_for_number[i] = pc_number.computer[i];
+                memory_for_number[i] = pc_number.current_computer_number[i];
             }
         }
     }

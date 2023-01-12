@@ -68,7 +68,8 @@ private:
 
     bool number_includes_bull_or_cow = false; ///< becomes true when bulls or cows in the first number are detected
     bool any_cows_or_bulls = true; ///< if the first number doesn't contains any cows or bulls, becomes false
-    Mixnumbers<CowsAndBullsComputerHelper, unsigned char, int>* first_number = nullptr; ///< needs to do permutations for number and return them
+    Mixnumbers<CowsAndBullsComputerHelper, unsigned char, int>* first_number = nullptr; /**< needs to do permutations
+                                                                                        for number and return them*/
     bool number_doesnt_include_cORb = false; /**< needs to fill false_numbers with false after generating first
                                                   number*/
 };

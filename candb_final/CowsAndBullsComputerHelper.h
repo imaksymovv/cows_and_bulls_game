@@ -4,7 +4,7 @@
 * This structure stores number to guess for cows and bulls game.
 *******************************************************************************/
 struct CowsAndBullsComputerHelper {
-    unsigned char current_computer_number[4]; ///< stores current computer number
+    unsigned char computer_number[4]; ///< stores computer number
 
     CowsAndBullsComputerHelper& operator=(const CowsAndBullsComputerHelper& c);
 

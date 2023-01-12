@@ -1,9 +1,10 @@
 #include <iostream>
 #include "Mixnumbers.h"
 
-Mixnumbers::Mixnumbers(CowsAndBullsComputerHelper r) {
+template<typename T, typename U, typename V>
+Mixnumbers<T, U, V>::Mixnumbers(T r) {
     for (size_t j = 0; j < 4; j++) {
-        all_numbers[j][0] = r.current_computer_number[j];
+        all_numbers[j][0] = r.computer_number[j];
     }
     for (size_t i = 1; i < 24; i++) {
         for (size_t j = 0; j < 4; j++) {
@@ -27,11 +28,11 @@ Mixnumbers::Mixnumbers(CowsAndBullsComputerHelper r) {
         }
     }
 }
-
-CowsAndBullsComputerHelper Mixnumbers::reshuffle() {
+template<typename T, typename U, typename V>
+T Mixnumbers<T, U, V>::reshuffle() {
     CowsAndBullsComputerHelper r;
     for (size_t i = 0; i < 4; i++) {
-        r.current_computer_number[i] = all_numbers[i][counter_for_reshuffle];
+        r.computer_number[i] = all_numbers[i][counter_for_reshuffle];
     }
     counter_for_reshuffle++;
     return r;

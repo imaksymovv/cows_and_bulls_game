@@ -35,7 +35,8 @@ int main() {
         }
 
         auto answer = p1.Ask(n);
-        std::cout << "cows: " << static_cast<unsigned short>(answer.cows) << " bulls: " << static_cast<unsigned short>(answer.bulls) << std::endl;
+        std::cout << "cows: " << static_cast<unsigned short>(answer.cows) << " bulls: " 
+            << static_cast<unsigned short>(answer.bulls) << std::endl;
         if (answer.bulls != 4) {
             std::cout << "try again" << std::endl;
         }

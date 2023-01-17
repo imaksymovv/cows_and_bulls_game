@@ -1,4 +1,3 @@
-#include <iostream>
 #include "CowsAndBullsComputerHelper.h"
 
 CowsAndBullsComputerHelper& CowsAndBullsComputerHelper::operator=(const CowsAndBullsComputerHelper& c)

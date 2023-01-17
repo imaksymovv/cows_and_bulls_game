@@ -1,4 +1,3 @@
-#include <iostream>
 #include "CowsAndBullsPlayer.h"
 
 CowsAndBullsAnswer CowsAndBullsPlayer::Ask(unsigned char num[4]) const {

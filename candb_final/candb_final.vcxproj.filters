@@ -24,9 +24,6 @@
     <ClCompile Include="CowsAndBullsComputerHelper.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Mixnumbers.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="CowsAndBullsLivePlayer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>

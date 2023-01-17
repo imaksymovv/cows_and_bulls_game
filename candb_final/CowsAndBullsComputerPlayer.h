@@ -59,7 +59,7 @@ private:
     int index_for_substitution = -1; ///< index for the loop in which the number is substituted
     int index_when_cows_founded = -1; ///< index for the loop looking for the cows
     int index_when_bulls_founded = -1; ///< index for the loop loking for the bulls in first number
-    bool false_numbers[9]; ///< array that stores "true" for incorrect numbers, and "false" for unused numbers
+    bool false_numbers[9]; ///< array that stores "true" for incorrect numbers, and "false" for other numbers
     bool new_bull = false; /**<if during the search for a bull in the first number, the substitute turns out to
                                 be a bull, this variable becomes true*/
 
@@ -68,7 +68,7 @@ private:
 
     bool number_includes_bull_or_cow = false; ///< becomes true when bulls or cows in the first number are detected
     bool any_cows_or_bulls = true; ///< if the first number doesn't contains any cows or bulls, becomes false
-    Mixnumbers<CowsAndBullsComputerHelper, unsigned char, int>* first_number = nullptr; /**< needs to do permutations
+    Mixnumbers<CowsAndBullsComputerHelper, unsigned char>* first_number = nullptr; /**< performs permutations
                                                                                         for number and return them*/
     bool number_doesnt_include_cORb = false; /**< needs to fill false_numbers with false after generating first
                                                   number*/

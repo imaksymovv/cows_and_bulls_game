@@ -1,4 +1,3 @@
-#include <iostream>
 #include "CowsAndBullsComputerPlayer.h"
 
 namespace {
@@ -155,7 +154,7 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::computer_guessing(CowsAnd
             }
             else {
                 if (first_number == nullptr) {
-                    first_number = new Mixnumbers<CowsAndBullsComputerHelper, unsigned char, int>(pc_number);
+                    first_number = new Mixnumbers<CowsAndBullsComputerHelper, unsigned char>(pc_number);
                 }
                 if (answer.bulls < 1) {
                     pc_number = first_number->reshuffle();
@@ -274,7 +273,8 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::computer_guessing(CowsAnd
             cow_number_substitute = true;
             do {
                 pc_number = number_including_bulls_creating();
-            } while (pc_number.computer_number[0] == cows_checker || pc_number.computer_number[1] == cows_checker || pc_number.computer_number[2] == cows_checker || pc_number.computer_number[3] == cows_checker);
+            } while (pc_number.computer_number[0] == cows_checker || pc_number.computer_number[1] == cows_checker ||
+                pc_number.computer_number[2] == cows_checker || pc_number.computer_number[3] == cows_checker);
             cow_number_substitute = false;
             for (size_t i = 0; i < 4; i++) {
                 memory_for_number[i] = pc_number.computer_number[i];

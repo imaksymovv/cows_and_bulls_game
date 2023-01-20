@@ -1,4 +1,5 @@
 #include "CowsAndBullsComputerPlayer.h"
+#include "CowsAndBullsComputerHelper.h"
 
 namespace {
 /*******************************************************************************

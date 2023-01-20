@@ -2,10 +2,8 @@
 #include "CowsAndBullsComputerHelper.h"
 #include "CowsAndBullsComputerPlayer.h"
 #include "CowsAndBullsLivePlayer.h"
-#include "CowsAndBullsPlayer.h"
-#include "Mixnumbers.h"
 #include <iostream>
-
+//научить при сохранении
 int main() {
   srand(time(NULL));
   CowsAndBullsAnswer p = {};

@@ -2,8 +2,8 @@
 #include "CowsAndBullsComputerHelper.h"
 #include "CowsAndBullsComputerPlayer.h"
 #include "CowsAndBullsLivePlayer.h"
-#include "CowsAndBullsPlayer.h"
-#include "Mixnumbers.h"
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 
 int main() {

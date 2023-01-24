@@ -1,5 +1,6 @@
 #pragma once
-
+#include "CowsAndBullsComputerHelper.h"
+    
 /*******************************************************************************
  * This is the class that doing permutations for the number
  *******************************************************************************/

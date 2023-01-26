@@ -3,6 +3,7 @@
 #include "CowsAndBullsComputerHelper.h"
 #include "CowsAndBullsPlayer.h"
 #include "Mixnumbers.h"
+#include <memory>
 
 /*******************************************************************************
  * This is the class for computer player for the "Cows and Bulls" game
@@ -86,9 +87,10 @@ private:
              ///< detected
   bool any_cows_or_bulls = true; ///< if the first number doesn't contains any
                                  ///< cows or bulls, becomes false
-  Mixnumbers<CowsAndBullsComputerHelper, unsigned char> *first_number =
-      nullptr; /**< performs permutations
-                    for number and return them*/
+  std::unique_ptr<Mixnumbers<CowsAndBullsComputerHelper, unsigned char>>
+      first_number = nullptr;
+  /**< performs permutations for number and return them*/
+
   bool number_doesnt_include_cORb =
       false; /**< needs to fill false_numbers with false after generating first
                   number*/

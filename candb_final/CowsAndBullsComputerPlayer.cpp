@@ -36,14 +36,14 @@ unsigned char substitute_creating(CowsAndBullsComputerHelper r) {
 
 void CowsAndBullsComputerPlayer::memory_cleaner() {
   if (first_number != nullptr) {
-    delete first_number;
+    delete &first_number;
     first_number = nullptr;
   }
 }
 
 CowsAndBullsComputerPlayer::~CowsAndBullsComputerPlayer() {
   if (first_number != nullptr) {
-    delete first_number;
+    delete &first_number;
   }
 }
 
@@ -154,9 +154,8 @@ CowsAndBullsComputerPlayer::computer_guessing(CowsAndBullsAnswer answer) {
         }
       } else {
         if (first_number == nullptr) {
-          first_number =
-              new Mixnumbers<CowsAndBullsComputerHelper, unsigned char>(
-                  pc_number);
+          first_number = std::make_unique<
+              Mixnumbers<CowsAndBullsComputerHelper, unsigned char>>(pc_number);
         }
         if (answer.bulls < 1) {
           pc_number = first_number->reshuffle();

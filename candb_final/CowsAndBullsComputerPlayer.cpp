@@ -32,18 +32,11 @@ unsigned char substitute_creating(CowsAndBullsComputerHelper r) {
   }
   return substitute;
 }
-}; // namespace
+}; 
 
 void CowsAndBullsComputerPlayer::memory_cleaner() {
-  if (first_number != nullptr) {
-    delete &first_number;
-    first_number = nullptr;
-  }
-}
-
-CowsAndBullsComputerPlayer::~CowsAndBullsComputerPlayer() {
-  if (first_number != nullptr) {
-    delete &first_number;
+  if (first_number) {
+    first_number.reset();
   }
 }
 
@@ -153,7 +146,7 @@ CowsAndBullsComputerPlayer::computer_guessing(CowsAndBullsAnswer answer) {
           return pc_number;
         }
       } else {
-        if (first_number == nullptr) {
+        if (!first_number) {
           first_number = std::make_unique<
               Mixnumbers<CowsAndBullsComputerHelper, unsigned char>>(pc_number);
         }

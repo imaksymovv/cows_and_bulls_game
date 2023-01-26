@@ -10,7 +10,6 @@
  *******************************************************************************/
 class CowsAndBullsComputerPlayer : public CowsAndBullsPlayer {
 public:
-  ~CowsAndBullsComputerPlayer();
 
   /*******************************************************************************
    * Function that deletes memory for variable "first number"

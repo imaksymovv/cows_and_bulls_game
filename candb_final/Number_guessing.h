@@ -10,6 +10,8 @@
  *******************************************************************************/
 class Number_guessing {
  public:
+  ~Number_guessing();
+
   /*******************************************************************************
    * Function that deletes memory for variable "first number"
    *******************************************************************************/
@@ -78,8 +80,7 @@ class Number_guessing {
               ///< detected
   bool any_cows_or_bulls = true;  ///< if the first number doesn't contains any
                                   ///< cows or bulls, becomes false
-  std::unique_ptr<Mixnumbers<CowsAndBullsComputerHelper, unsigned char>>
-      first_number = nullptr;
+  Mixnumbers<CowsAndBullsComputerHelper, unsigned char> *first_number = nullptr;
   /**< performs permutations for number and return them*/
 
   bool number_doesnt_include_cORb =

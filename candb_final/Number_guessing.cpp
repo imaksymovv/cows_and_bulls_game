@@ -35,9 +35,16 @@ unsigned char substitute_creating(CowsAndBullsComputerHelper r) {
 }
 };  // namespace
 
+Number_guessing::~Number_guessing(){
+  if (first_number != nullptr) {
+    delete first_number;
+    first_number = nullptr;
+  }
+}
+
 void Number_guessing::memory_cleaner() {
-  if (first_number) {
-    first_number.reset();
+  if (first_number != nullptr) {
+    delete first_number;
   }
 }
 
@@ -147,8 +154,9 @@ CowsAndBullsComputerHelper Number_guessing::computer_guessing(
         }
       } else {
         if (!first_number) {
-          first_number = std::make_unique<
-              Mixnumbers<CowsAndBullsComputerHelper, unsigned char>>(pc_number);
+          first_number =
+              new Mixnumbers<CowsAndBullsComputerHelper, unsigned char>(
+                  pc_number);
         }
         if (answer.bulls < 1) {
           pc_number = first_number->reshuffle();

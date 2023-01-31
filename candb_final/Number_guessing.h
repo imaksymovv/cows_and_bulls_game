@@ -1,6 +1,4 @@
 #pragma once
-#include <memory>
-
 #include "CowsAndBullsAnswer.h"
 #include "CowsAndBullsComputerHelper.h"
 #include "Mixnumbers.h"

@@ -30,6 +30,9 @@
     <ClCompile Include="CowsAndBullsPlayer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Number_guessing.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Mixnumbers.h">
@@ -48,6 +51,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="CowsAndBullsLivePlayer.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Number_guessing.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

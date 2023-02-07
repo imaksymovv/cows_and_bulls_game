@@ -6,22 +6,16 @@
 /*******************************************************************************
  * This is the class that allows computer to guess the number
  *******************************************************************************/
-class Number_guessing {
+class NumberGuessing {
  public:
-  ~Number_guessing();
+  ~NumberGuessing();
 
   /*******************************************************************************
-   * Function that deletes memory for variable "first number"
-   *******************************************************************************/
-  void memory_cleaner();
-
-  /*******************************************************************************
-  * Funciton that generates number with already founded bulls and not used
-  numbers
-  *
-  * Function returns generated computer number with already founded bulls.
-  /*******************************************************************************/
-  CowsAndBullsComputerHelper number_including_bulls_creating();
+  * Function that returns the class to its original state
+  * 
+  * Function returns computer number   
+  *******************************************************************************/
+  CowsAndBullsComputerHelper restart();
 
   /*******************************************************************************
    * This function analyzes number of cows and bulls for current number, then
@@ -35,6 +29,14 @@ class Number_guessing {
   CowsAndBullsComputerHelper computer_guessing(CowsAndBullsAnswer answer);
 
  private:
+/*******************************************************************************
+* Funciton that generates number with already founded bulls and not used
+numbers
+*
+* Function returns generated computer number with already founded bulls.
+/*******************************************************************************/
+  CowsAndBullsComputerHelper number_including_bulls_creating();
+
   unsigned char bulls_before_cows_part =
       0;  ///< stores the number of bulls on the start
   unsigned char number_of_bulls =

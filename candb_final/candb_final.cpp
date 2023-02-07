@@ -60,7 +60,30 @@ int main() {
     std::cout << std::endl;
     p = p2.Ask(t.computer_number);
   } while (p.bulls != 4);
-  p1.memory_cleaner();
+  std::cout << "computer guessed your number! it is: ";
+  for (size_t i = 0; i < 4; i++) {
+    std::cout << static_cast<short>(t.computer_number[i]);
+  }
+  std::cout << std::endl;
+
+  t = p1.restart();
+  p.bulls = 0;
+
+  std::cout << "Enter your number" << std::endl;
+  for (int i = 0; i < 4; i++) {
+    std::cin >> input;
+    n[i] = input;
+  }
+  CowsAndBullsLivePlayer p3(n);
+  
+  do {
+    t = p1.computer_guessing(p);
+    for (size_t i = 0; i < 4; i++) {
+      std::cout << static_cast<short>(t.computer_number[i]);
+    }
+    std::cout << std::endl;
+    p = p3.Ask(t.computer_number);
+  } while (p.bulls != 4);
   std::cout << "computer guessed your number! it is: ";
   for (size_t i = 0; i < 4; i++) {
     std::cout << static_cast<short>(t.computer_number[i]);

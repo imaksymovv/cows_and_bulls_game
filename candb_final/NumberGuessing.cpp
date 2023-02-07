@@ -1,5 +1,4 @@
-#include "Number_guessing.h"
-
+#include "NumberGuessing.h"
 #include "CowsAndBullsComputerHelper.h"
 
 namespace {
@@ -35,20 +34,39 @@ unsigned char substitute_creating(CowsAndBullsComputerHelper r) {
 }
 };  // namespace
 
-Number_guessing::~Number_guessing(){
+NumberGuessing::~NumberGuessing(){
   if (first_number != nullptr) {
     delete first_number;
     first_number = nullptr;
   }
 }
 
-void Number_guessing::memory_cleaner() {
-  if (first_number != nullptr) {
-    delete first_number;
+CowsAndBullsComputerHelper NumberGuessing::restart() { 
+  CowsAndBullsComputerHelper r;
+  for (size_t i = 0; i < 4; i++) {
+    r.computer_number[i] = 0;
   }
+  number_of_bulls = 0; 
+  for (size_t i = 0; i < 4; i++) {
+    founded_bulls[i] = 0;
+  }
+  number_have_bulls = false;  
+  searching_for_cows_started = false;      
+  for (size_t i = 0; i < 9; i++) {
+    false_numbers[i] = false;
+  }                        
+  new_bull = false; 
+  number_includes_bull_or_cow = false; 
+  any_cows_or_bulls = true; 
+  first_number = nullptr;
+  number_doesnt_include_cORb = false; 
+  searching_for_bulls_index = -1;
+
+  return r;
 }
 
-CowsAndBullsComputerHelper Number_guessing::number_including_bulls_creating() {
+
+CowsAndBullsComputerHelper NumberGuessing::number_including_bulls_creating() {
   CowsAndBullsComputerHelper r;
   unsigned int index_for_false_numbers = 0;
   for (size_t i = 0; i < 4; i++) {
@@ -90,7 +108,7 @@ CowsAndBullsComputerHelper Number_guessing::number_including_bulls_creating() {
   return r;
 }
 
-CowsAndBullsComputerHelper Number_guessing::computer_guessing(
+CowsAndBullsComputerHelper NumberGuessing::computer_guessing(
     CowsAndBullsAnswer answer) {
   CowsAndBullsComputerHelper pc_number;
   pc_number = previous;
@@ -227,6 +245,7 @@ CowsAndBullsComputerHelper Number_guessing::computer_guessing(
     }
     if (bull_founded == true) {
       number_of_cows = 0;
+      index_for_substitution = -1;
       if (index_when_bulls_founded == -1) {
         amount_of_bulls = answer.bulls;
         substitute = substitute_creating(pc_number);

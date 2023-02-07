@@ -146,7 +146,7 @@
     </ClCompile>
     <ClCompile Include="CowsAndBullsLivePlayer.cpp" />
     <ClCompile Include="CowsAndBullsPlayer.cpp" />
-    <ClCompile Include="Number_guessing.cpp" />
+    <ClCompile Include="NumberGuessing.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CowsAndBullsAnswer.h" />
@@ -155,7 +155,7 @@
     <ClInclude Include="CowsAndBullsLivePlayer.h" />
     <ClInclude Include="CowsAndBullsPlayer.h" />
     <ClInclude Include="Mixnumbers.h" />
-    <ClInclude Include="Number_guessing.h" />
+    <ClInclude Include="NumberGuessing.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

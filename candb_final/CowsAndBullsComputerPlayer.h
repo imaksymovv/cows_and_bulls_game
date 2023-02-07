@@ -1,12 +1,12 @@
 #pragma once
 #include "CowsAndBullsPlayer.h"
-#include "Number_guessing.h"
+#include "NumberGuessing.h"
 
 /*******************************************************************************
  * This is the class for computer player for the "Cows and Bulls" game
  *******************************************************************************/
 class CowsAndBullsComputerPlayer : public CowsAndBullsPlayer,
-                                   public Number_guessing {
+                                   public NumberGuessing {
  public:
   /*******************************************************************************
    * Constructor that recieves number that the computer's opponent need to guess

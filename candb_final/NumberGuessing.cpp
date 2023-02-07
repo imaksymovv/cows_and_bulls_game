@@ -6,10 +6,10 @@ namespace {
  * Function that generates substitute for number.
  *
  * This substitute is a number that is different from all other numbers in the
- *number.
+ * number.
  *
  * Function recieves "r", that includes "current_computer_number" to generate
- *substitute for the number
+ * substitute for the number
  *
  * Function returns substitute for current number
  *******************************************************************************/
@@ -34,14 +34,7 @@ unsigned char substitute_creating(CowsAndBullsComputerHelper r) {
 }
 };  // namespace
 
-NumberGuessing::~NumberGuessing(){
-  if (first_number != nullptr) {
-    delete first_number;
-    first_number = nullptr;
-  }
-}
-
-CowsAndBullsComputerHelper NumberGuessing::restart() { 
+void NumberGuessing::restart() { 
   CowsAndBullsComputerHelper r;
   for (size_t i = 0; i < 4; i++) {
     r.computer_number[i] = 0;
@@ -58,11 +51,10 @@ CowsAndBullsComputerHelper NumberGuessing::restart() {
   new_bull = false; 
   number_includes_bull_or_cow = false; 
   any_cows_or_bulls = true; 
-  first_number = nullptr;
+  first_number.reset();
   number_doesnt_include_cORb = false; 
   searching_for_bulls_index = -1;
 
-  return r;
 }
 
 
@@ -172,9 +164,8 @@ CowsAndBullsComputerHelper NumberGuessing::computer_guessing(
         }
       } else {
         if (!first_number) {
-          first_number =
-              new Mixnumbers<CowsAndBullsComputerHelper, unsigned char>(
-                  pc_number);
+          first_number = std::make_unique<
+              Mixnumbers<CowsAndBullsComputerHelper, unsigned char>>(pc_number);
         }
         if (answer.bulls < 1) {
           pc_number = first_number->reshuffle();

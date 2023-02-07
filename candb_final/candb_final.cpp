@@ -66,7 +66,7 @@ int main() {
   }
   std::cout << std::endl;
 
-  t = p1.restart();
+  p1.restart();
   p.bulls = 0;
 
   std::cout << "Enter your number" << std::endl;

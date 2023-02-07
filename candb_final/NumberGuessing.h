@@ -2,36 +2,36 @@
 #include "CowsAndBullsAnswer.h"
 #include "CowsAndBullsComputerHelper.h"
 #include "Mixnumbers.h"
+#include <memory>
 
 /*******************************************************************************
  * This is the class that allows computer to guess the number
  *******************************************************************************/
 class NumberGuessing {
  public:
-  ~NumberGuessing();
 
   /*******************************************************************************
   * Function that returns the class to its original state
   * 
   * Function returns computer number   
   *******************************************************************************/
-  CowsAndBullsComputerHelper restart();
+  void restart();
 
   /*******************************************************************************
    * This function analyzes number of cows and bulls for current number, then
-   *changing this number and returns it.
+   * changing this number and returns it.
    *
    * Function returns current computer number
    *
    * Function recieves "answer", that includes the number of cows and bulls for
-   *current number
+   * current number
    *******************************************************************************/
   CowsAndBullsComputerHelper computer_guessing(CowsAndBullsAnswer answer);
 
  private:
 /*******************************************************************************
 * Funciton that generates number with already founded bulls and not used
-numbers
+* numbers
 *
 * Function returns generated computer number with already founded bulls.
 /*******************************************************************************/
@@ -80,7 +80,8 @@ numbers
               ///< detected
   bool any_cows_or_bulls = true;  ///< if the first number doesn't contains any
                                   ///< cows or bulls, becomes false
-  Mixnumbers<CowsAndBullsComputerHelper, unsigned char> *first_number = nullptr;
+  std::unique_ptr<Mixnumbers<CowsAndBullsComputerHelper, unsigned char>>
+      first_number = nullptr;
   /**< performs permutations for number and return them*/
 
   bool number_doesnt_include_cORb =

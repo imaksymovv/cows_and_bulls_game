@@ -149,6 +149,7 @@
     <ClCompile Include="NumberGuessing.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ComputerGuessingInterface.h" />
     <ClInclude Include="CowsAndBullsAnswer.h" />
     <ClInclude Include="CowsAndBullsComputerHelper.h" />
     <ClInclude Include="CowsAndBullsComputerPlayer.h" />

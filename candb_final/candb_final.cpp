@@ -2,6 +2,7 @@
 #include "CowsAndBullsComputerHelper.h"
 #include "CowsAndBullsComputerPlayer.h"
 #include "CowsAndBullsLivePlayer.h"
+#include "NumberGuessing.h"
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
@@ -23,7 +24,7 @@ int main() {
       }
     }
   }
-  CowsAndBullsComputerPlayer p1(n);
+  CowsAndBullsComputerPlayer p1(n, std::make_unique<NumberGuessing>());
   std::cout << p1[0] << p1[1] << p1[2] << p1[3] << std::endl;
 
   std::cout << "try to guess computer number" << std::endl;

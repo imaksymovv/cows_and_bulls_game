@@ -2,12 +2,13 @@
 #include "CowsAndBullsAnswer.h"
 #include "CowsAndBullsComputerHelper.h"
 #include "Mixnumbers.h"
+#include "ComputerGuessingInterface.h"
 #include <memory>
 
 /*******************************************************************************
  * This is the class that allows computer to guess the number
  *******************************************************************************/
-class NumberGuessing {
+class NumberGuessing : public ComputerGuessingInterface{
  public:
 
   /*******************************************************************************
@@ -15,7 +16,7 @@ class NumberGuessing {
   * 
   * Function returns computer number   
   *******************************************************************************/
-  void restart();
+  void restart() override;
 
   /*******************************************************************************
    * This function analyzes number of cows and bulls for current number, then
@@ -26,7 +27,7 @@ class NumberGuessing {
    * Function recieves "answer", that includes the number of cows and bulls for
    * current number
    *******************************************************************************/
-  CowsAndBullsComputerHelper computer_guessing(CowsAndBullsAnswer answer);
+  CowsAndBullsComputerHelper computer_guessing(CowsAndBullsAnswer answer) override;
 
  private:
 /*******************************************************************************

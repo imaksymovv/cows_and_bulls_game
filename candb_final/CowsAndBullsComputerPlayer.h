@@ -1,18 +1,24 @@
 #pragma once
 #include "CowsAndBullsPlayer.h"
 #include "NumberGuessing.h"
+#include "ComputerGuessingInterface.h"
 
 /*******************************************************************************
  * This is the class for computer player for the "Cows and Bulls" game
  *******************************************************************************/
-class CowsAndBullsComputerPlayer : public CowsAndBullsPlayer,
-                                   public NumberGuessing {
+class CowsAndBullsComputerPlayer : public CowsAndBullsPlayer {
  public:
+  void restart();
+
+  CowsAndBullsComputerHelper computer_guessing(CowsAndBullsAnswer answer);
   /*******************************************************************************
    * Constructor that recieves number that the computer's opponent need to guess
    *
    * Contructor recieves variable "n" - number that the computer's opponent need
    *to guess
    *******************************************************************************/
-  explicit CowsAndBullsComputerPlayer(unsigned char n[4]);
+CowsAndBullsComputerPlayer(unsigned char n[4], std::unique_ptr<ComputerGuessingInterface>&& r);
+
+private:
+std::unique_ptr<ComputerGuessingInterface> virtual_connection;
 };

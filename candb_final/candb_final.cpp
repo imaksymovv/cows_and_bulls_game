@@ -2,6 +2,7 @@
 #include "CowsAndBullsComputerHelper.h"
 #include "CowsAndBullsComputerPlayer.h"
 #include "CowsAndBullsLivePlayer.h"
+#include "NumberGuessing.h"
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
@@ -23,7 +24,7 @@ int main() {
       }
     }
   }
-  CowsAndBullsComputerPlayer p1(n);
+  CowsAndBullsComputerPlayer p1(n, std::make_unique<NumberGuessing>());
   std::cout << p1[0] << p1[1] << p1[2] << p1[3] << std::endl;
 
   std::cout << "try to guess computer number" << std::endl;
@@ -60,7 +61,30 @@ int main() {
     std::cout << std::endl;
     p = p2.Ask(t.computer_number);
   } while (p.bulls != 4);
-  p1.memory_cleaner();
+  std::cout << "computer guessed your number! it is: ";
+  for (size_t i = 0; i < 4; i++) {
+    std::cout << static_cast<short>(t.computer_number[i]);
+  }
+  std::cout << std::endl;
+
+  p1.restart();
+  p.bulls = 0;
+
+  std::cout << "Enter your number" << std::endl;
+  for (int i = 0; i < 4; i++) {
+    std::cin >> input;
+    n[i] = input;
+  }
+  CowsAndBullsLivePlayer p3(n);
+  
+  do {
+    t = p1.computer_guessing(p);
+    for (size_t i = 0; i < 4; i++) {
+      std::cout << static_cast<short>(t.computer_number[i]);
+    }
+    std::cout << std::endl;
+    p = p3.Ask(t.computer_number);
+  } while (p.bulls != 4);
   std::cout << "computer guessed your number! it is: ";
   for (size_t i = 0; i < 4; i++) {
     std::cout << static_cast<short>(t.computer_number[i]);

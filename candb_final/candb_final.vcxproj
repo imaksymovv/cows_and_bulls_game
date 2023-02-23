@@ -146,14 +146,17 @@
     </ClCompile>
     <ClCompile Include="CowsAndBullsLivePlayer.cpp" />
     <ClCompile Include="CowsAndBullsPlayer.cpp" />
+    <ClCompile Include="NumberGuessing.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ComputerGuessingInterface.h" />
     <ClInclude Include="CowsAndBullsAnswer.h" />
     <ClInclude Include="CowsAndBullsComputerHelper.h" />
     <ClInclude Include="CowsAndBullsComputerPlayer.h" />
     <ClInclude Include="CowsAndBullsLivePlayer.h" />
     <ClInclude Include="CowsAndBullsPlayer.h" />
     <ClInclude Include="Mixnumbers.h" />
+    <ClInclude Include="NumberGuessing.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

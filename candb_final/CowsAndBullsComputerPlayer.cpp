@@ -2,11 +2,11 @@
 
 CowsAndBullsComputerPlayer::CowsAndBullsComputerPlayer(
     unsigned char n[4], std::unique_ptr<ComputerGuessingInterface> &&r)
-    : CowsAndBullsPlayer(n), virtual_connection{std::move(r)} {}
+    : CowsAndBullsPlayer(n), guessing_methods{std::move(r)} {}
 
-void CowsAndBullsComputerPlayer::restart() { virtual_connection->restart(); }
+void CowsAndBullsComputerPlayer::restart() { guessing_methods->restart(); }
 
 CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::computer_guessing(
     CowsAndBullsAnswer answer) {
-  return virtual_connection->computer_guessing(answer);
+  return guessing_methods->computer_guessing(answer);
 }

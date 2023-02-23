@@ -20,5 +20,5 @@ class CowsAndBullsComputerPlayer : public CowsAndBullsPlayer {
 CowsAndBullsComputerPlayer(unsigned char n[4], std::unique_ptr<ComputerGuessingInterface>&& r);
 
 private:
-std::unique_ptr<ComputerGuessingInterface> virtual_connection;
+std::unique_ptr<ComputerGuessingInterface> guessing_methods;
 };

@@ -17,7 +17,7 @@ unsigned char substitute_creating(CowsAndBullsComputerHelper r) {
   unsigned char substitute = 0;
   bool numbers_are_not_same = false;
   for (size_t i = 0; i < 9; i++) {
-    substitute = i + 1;
+    substitute = static_cast<unsigned char>(i + 1);
     for (size_t j = 0; j < 4; j++) {
       if (substitute == r.computer_number[j]) {
         numbers_are_not_same = false;

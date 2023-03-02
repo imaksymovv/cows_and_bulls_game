@@ -8,7 +8,7 @@
 #include <iostream>
 
 int main() {
-  srand(time(NULL));
+  srand((unsigned int)time(NULL));
   CowsAndBullsAnswer p = {};
   CowsAndBullsComputerHelper t = {};
   unsigned char n[4];
@@ -16,7 +16,7 @@ int main() {
 
   for (int i = 0; i < 4; ++i) {
     input = 1 + rand() % 9;
-    n[i] = input;
+    n[i] = static_cast<unsigned char>(input);
     for (int j = 0; j < i; j++) {
       if (n[j] == n[i]) {
         i--;
@@ -32,7 +32,7 @@ int main() {
   do {
     for (int i = 0; i < 4; i++) {
       std::cin >> input;
-      n[i] = input;
+      n[i] = static_cast<unsigned char>(input);
     }
 
     auto answer = p1.Ask(n);
@@ -50,7 +50,7 @@ int main() {
   std::cout << "Enter your number" << std::endl;
   for (int i = 0; i < 4; i++) {
     std::cin >> input;
-    n[i] = input;
+    n[i] = static_cast<unsigned char>(input);
   }
   CowsAndBullsLivePlayer p2(n);
   do {
@@ -73,7 +73,7 @@ int main() {
   std::cout << "Enter your number" << std::endl;
   for (int i = 0; i < 4; i++) {
     std::cin >> input;
-    n[i] = input;
+    n[i] = static_cast<unsigned char>(input);
   }
   CowsAndBullsLivePlayer p3(n);
   

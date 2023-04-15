@@ -54,7 +54,7 @@ int main() {
   }
   CowsAndBullsLivePlayer p2(n);
   do {
-    t = p1.computer_guessing(p);
+    t = p1(p);
     for (size_t i = 0; i < 4; i++) {
       std::cout << static_cast<short>(t.computer_number[i]);
     }
@@ -67,7 +67,7 @@ int main() {
   }
   std::cout << std::endl;
 
-  p1.restart();
+  p1();
   p.bulls = 0;
 
   std::cout << "Enter your number" << std::endl;
@@ -78,7 +78,7 @@ int main() {
   CowsAndBullsLivePlayer p3(n);
   
   do {
-    t = p1.computer_guessing(p);
+    t = p1(p);
     for (size_t i = 0; i < 4; i++) {
       std::cout << static_cast<short>(t.computer_number[i]);
     }

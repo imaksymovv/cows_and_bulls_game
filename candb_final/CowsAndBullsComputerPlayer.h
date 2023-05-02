@@ -8,15 +8,11 @@
  *******************************************************************************/
 class CowsAndBullsComputerPlayer : public CowsAndBullsPlayer {
  public:
-  void operator()() { 
-	  restart();
-  }
+  void operator()();
 
   void restart();
 
-  CowsAndBullsComputerHelper operator()(CowsAndBullsAnswer answer) { 
-	  return computer_guessing(answer);
-  }
+  CowsAndBullsComputerHelper operator()(CowsAndBullsAnswer answer);
 
   CowsAndBullsComputerHelper computer_guessing(CowsAndBullsAnswer answer);
   /*******************************************************************************

@@ -10,3 +10,10 @@ CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::computer_guessing(
     CowsAndBullsAnswer answer) {
   return guessing_methods->computer_guessing(answer);
 }
+
+  CowsAndBullsComputerHelper CowsAndBullsComputerPlayer::operator()(
+    CowsAndBullsAnswer answer) {
+  return computer_guessing(answer);
+}
+
+    void CowsAndBullsComputerPlayer::operator()() { restart(); }

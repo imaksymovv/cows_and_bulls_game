@@ -3,7 +3,7 @@
 CowsAndBullsAnswer CowsAndBullsPlayer::Ask(unsigned char num[4]) const {
   CowsAndBullsAnswer counter = {};
   for (int i = 0; i < 4; i++) {
-    for (int j = 0; j < 4; j++) {
+    for (int j = 0; j < 4; j++) {//std::count, std::find, std::distance
       if (num[i] == this->number[j]) {
         if (j == i) {
           counter.bulls++;

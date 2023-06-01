@@ -18,9 +18,9 @@ unsigned char substitute_creating(CowsAndBullsComputerHelper r) {
   bool numbers_are_not_same = false;
   for (size_t i = 0; i < 9; i++) {
     substitute = static_cast<unsigned char>(i + 1);
-    for (size_t j = 0; j < 4; j++) {
-      if (substitute == r.computer_number[j]) {
-        numbers_are_not_same = false;
+    for (size_t j = 0; j < 4; j++) { //change to std::find 
+      if (substitute == r.computer_number[j]) { 
+        numbers_are_not_same = false; //don't use it
         break;
       } else {
         numbers_are_not_same = true;
@@ -72,8 +72,8 @@ CowsAndBullsComputerHelper NumberGuessing::number_including_bulls_creating() {
       if (cow_number_substitute == true) {
         for (size_t j = 0; j < 9; j++) {
           r.computer_number[i] = index_for_false_numbers + 1;
-          index_for_false_numbers++;
-          if (false_numbers[j] == false &&
+          index_for_false_numbers++; //create an iterator and use std::find 
+          if (false_numbers[j] == false && //compare iterator with false_numbers.end()
               r.computer_number[i] != cows_checker) {
             false_numbers[j] = true;
             break;
@@ -82,8 +82,8 @@ CowsAndBullsComputerHelper NumberGuessing::number_including_bulls_creating() {
       } else {
         for (size_t j = 0; j < 9; j++) {
           r.computer_number[i] = index_for_false_numbers + 1;
-          index_for_false_numbers++;
-          if (false_numbers[j] == false) {
+          index_for_false_numbers++;//create an iterator and use std::find 
+          if (false_numbers[j] == false) {//compare iterator with false_numbers.end()
             false_numbers[j] = true;
             break;
           }
@@ -119,7 +119,7 @@ CowsAndBullsComputerHelper NumberGuessing::computer_guessing(
         }
       }
       for (size_t i = 0; i < 4; i++) {
-        memory_for_number[i] = pc_number.computer_number[i];
+        memory_for_number[i] = pc_number.computer_number[i];//std::copy
       }
     } else {
       if (answer.cows >= 1) {
@@ -151,7 +151,7 @@ CowsAndBullsComputerHelper NumberGuessing::computer_guessing(
             index_for_false_numbers = 0;
             for (size_t j = 0; j < 9; j++) {
               pc_number.computer_number[i] = index_for_false_numbers + 1;
-              index_for_false_numbers++;
+              index_for_false_numbers++;//std::find
               if (false_numbers[j] == false) {
                 false_numbers[j] = true;
                 break;
@@ -290,7 +290,7 @@ CowsAndBullsComputerHelper NumberGuessing::computer_guessing(
       cow_number_substitute = true;
       do {
         pc_number = number_including_bulls_creating();
-      } while (pc_number.computer_number[0] == cows_checker ||
+      } while (pc_number.computer_number[0] == cows_checker ||//std::find
                pc_number.computer_number[1] == cows_checker ||
                pc_number.computer_number[2] == cows_checker ||
                pc_number.computer_number[3] == cows_checker);

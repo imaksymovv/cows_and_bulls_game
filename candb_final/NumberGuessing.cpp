@@ -172,7 +172,7 @@ CowsAndBullsComputerHelper NumberGuessing::computer_guessing(
         }
       }
       for (size_t i = 0; i < 4; i++) {
-        memory_for_number[i] = pc_number.computer_number[i];
+        memory_for_number[i] = pc_number.computer_number[i];//std::copy
       }
       previous = pc_number;
       return pc_number;
@@ -200,7 +200,7 @@ CowsAndBullsComputerHelper NumberGuessing::computer_guessing(
       new_bull = true;
     }
     for (size_t i = 0; i < 4; i++) {
-      pc_number.computer_number[i] = memory_for_number[i];
+      pc_number.computer_number[i] = memory_for_number[i];//std::copy
     }
     searching_for_bulls_index++;
     if (searching_for_bulls_index == 4) {
@@ -211,7 +211,7 @@ CowsAndBullsComputerHelper NumberGuessing::computer_guessing(
       }
       pc_number = number_including_bulls_creating();
       for (size_t i = 0; i < 4; i++) {
-        memory_for_number[i] = pc_number.computer_number[i];
+        memory_for_number[i] = pc_number.computer_number[i];//std::copy
       }
       substitute = substitute_creating(pc_number);
       previous = pc_number;
@@ -231,7 +231,7 @@ CowsAndBullsComputerHelper NumberGuessing::computer_guessing(
       start_substitution = false;
       cows_founded = false;
       for (size_t i = 0; i < 4; i++) {
-        memory_for_number[i] = pc_number.computer_number[i];
+        memory_for_number[i] = pc_number.computer_number[i];//std::copy
       }
     }
     if (bull_founded == true) {
@@ -242,7 +242,7 @@ CowsAndBullsComputerHelper NumberGuessing::computer_guessing(
         substitute = substitute_creating(pc_number);
       }
       for (size_t i = 0; i < 4; i++) {
-        pc_number.computer_number[i] = memory_for_number[i];
+        pc_number.computer_number[i] = memory_for_number[i];//std::copy
       }
       if (answer.bulls < amount_of_bulls) {
         memory_for_bulls[index_when_bulls_founded] =
@@ -267,7 +267,7 @@ CowsAndBullsComputerHelper NumberGuessing::computer_guessing(
         if (index_when_bulls_founded == 4) {
           pc_number = number_including_bulls_creating();
           for (size_t i = 0; i < 4; i++) {
-            memory_for_number[i] = pc_number.computer_number[i];
+            memory_for_number[i] = pc_number.computer_number[i];//std::copy
           }
           substitute = substitute_creating(pc_number);
           bull_founded = false;
@@ -296,7 +296,7 @@ CowsAndBullsComputerHelper NumberGuessing::computer_guessing(
                pc_number.computer_number[3] == cows_checker);
       cow_number_substitute = false;
       for (size_t i = 0; i < 4; i++) {
-        memory_for_number[i] = pc_number.computer_number[i];
+        memory_for_number[i] = pc_number.computer_number[i];//std::copy
       }
       index_when_cows_founded = -1;
       cows_founded = false;
@@ -307,7 +307,7 @@ CowsAndBullsComputerHelper NumberGuessing::computer_guessing(
         number_of_cows = answer.cows;
       }
       for (size_t i = 0; i < 4; i++) {
-        pc_number.computer_number[i] = memory_for_number[i];
+        pc_number.computer_number[i] = memory_for_number[i];//std::copy
       }
       do {
         index_when_cows_founded++;
@@ -324,7 +324,7 @@ CowsAndBullsComputerHelper NumberGuessing::computer_guessing(
     }
     if (start_substitution == true) {
       for (size_t i = 0; i < 4; i++) {
-        pc_number.computer_number[i] = memory_for_number[i];
+        pc_number.computer_number[i] = memory_for_number[i];//std::copy
       }
       do {
         index_for_substitution++;
@@ -352,7 +352,7 @@ CowsAndBullsComputerHelper NumberGuessing::computer_guessing(
       pc_number = number_including_bulls_creating();
       substitute = substitute_creating(pc_number);
       for (size_t i = 0; i < 4; i++) {
-        memory_for_number[i] = pc_number.computer_number[i];
+        memory_for_number[i] = pc_number.computer_number[i];//std::copy
       }
     }
   }

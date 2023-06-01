@@ -12,14 +12,14 @@ public:
    *******************************************************************************/
   Mixnumbers(T r) {
     for (size_t j = 0; j < 4; j++) {
-      all_numbers[j][0] = r.computer_number[j];//посмотреть reshuffle/next_permutation
+      all_numbers[j][0] = r.computer_number[j];
     }
-    for (size_t i = 1; i < 24; i++) {
+    for (size_t i = 1; i < 24; i++) {//change all this code to "do while" cycle with std::next_permutations
       for (size_t j = 0; j < 4; j++) {
         all_numbers[j][i] = all_numbers[j][i - 1];
       }
       if (i == 5) {
-        all_numbers[0][i] = all_numbers[3][i - 1];//std::swap
+        all_numbers[0][i] = all_numbers[3][i - 1];
         all_numbers[3][i] = all_numbers[0][i - 1];
       }
       if (i == 11 || i == 17) {

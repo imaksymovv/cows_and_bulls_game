@@ -37,16 +37,16 @@ unsigned char substitute_creating(CowsAndBullsComputerHelper r) {
 void NumberGuessing::restart() { 
   CowsAndBullsComputerHelper r;
   for (size_t i = 0; i < 4; i++) {
-    r.computer_number[i] = 0;
+    r.computer_number[i] = 0;//std::fill
   }
   number_of_bulls = 0; 
   for (size_t i = 0; i < 4; i++) {
-    founded_bulls[i] = 0;
+    founded_bulls[i] = 0;//std::fill
   }
   number_have_bulls = false;  
   searching_for_cows_started = false;      
   for (size_t i = 0; i < 9; i++) {
-    false_numbers[i] = false;
+    false_numbers[i] = false;//std::fill
   }                        
   new_bull = false; 
   number_includes_bull_or_cow = false; 
@@ -62,7 +62,7 @@ CowsAndBullsComputerHelper NumberGuessing::number_including_bulls_creating() {
   CowsAndBullsComputerHelper r;
   unsigned int index_for_false_numbers = 0;
   for (size_t i = 0; i < 4; i++) {
-    if (founded_bulls[i] == 1) {
+    if (founded_bulls[i] == 1) {//std::for_each
       r.computer_number[i] = memory_for_bulls[i];
     }
   }
@@ -91,7 +91,7 @@ CowsAndBullsComputerHelper NumberGuessing::number_including_bulls_creating() {
       }
     }
   }
-  for (size_t i = 0; i < 4; i++) {
+  for (size_t i = 0; i < 4; i++) {//std::for_each
     if (founded_bulls[i] != 1) {
       index_for_false_numbers = r.computer_number[i] - 1;
       false_numbers[index_for_false_numbers] = false;
@@ -111,11 +111,11 @@ CowsAndBullsComputerHelper NumberGuessing::computer_guessing(
       substitute = substitute_creating(pc_number);
       if (number_doesnt_include_cORb == false) {
         for (size_t i = 0; i < 4; i++) {
-          false_numbers[i] = false;
+          false_numbers[i] = false;//std::fill
         }
       } else {
         for (size_t i = 4; i < 8; i++) {
-          false_numbers[i] = false;
+          false_numbers[i] = false;//std::fill
         }
       }
       for (size_t i = 0; i < 4; i++) {
@@ -126,24 +126,24 @@ CowsAndBullsComputerHelper NumberGuessing::computer_guessing(
         number_includes_bull_or_cow = true;
         if (number_doesnt_include_cORb == false) {
           for (size_t i = 0; i < 4; i++) {
-            false_numbers[i] = false;
+            false_numbers[i] = false;//std::fill
           }
         } else {
           for (size_t i = 4; i < 8; i++) {
-            false_numbers[i] = false;
+            false_numbers[i] = false;//std::fill
           }
         }
       }
       if (number_includes_bull_or_cow == false) {
         if (any_cows_or_bulls == false) {
           for (size_t i = 0; i < 4; i++) {
-            false_numbers[i] = true;
+            false_numbers[i] = true;//std::fill
           }
           number_doesnt_include_cORb = true;
         }
         for (size_t i = 0; i < 9; i++) {
           if (false_numbers[i] != true) {
-            false_numbers[i] = false;
+            false_numbers[i] = false;//std::fill
           }
         }
         if (number_includes_bull_or_cow == false) {

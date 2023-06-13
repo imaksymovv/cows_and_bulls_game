@@ -41,7 +41,7 @@ public:
   T reshuffle() {
     CowsAndBullsComputerHelper r;
     for (size_t i = 0; i < 4; i++) {
-      r.computer_number[i] = all_numbers[i][counter_for_reshuffle];
+      r.computer_number[i] = all_numbers[i][counter_for_reshuffle];//std::copy
     }
     counter_for_reshuffle++;
     return r;

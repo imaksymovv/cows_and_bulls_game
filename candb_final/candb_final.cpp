@@ -14,7 +14,7 @@ int main() {
   unsigned char n[4];
   unsigned short input = 0;
 
-  for (int i = 0; i < 4; ++i) {
+  for (int i = 0; i < 4; ++i) {//for_each
     input = 1 + rand() % 9;
     n[i] = static_cast<unsigned char>(input);
     for (int j = 0; j < i; j++) {
@@ -32,7 +32,7 @@ int main() {
   do {
     for (int i = 0; i < 4; i++) {
       std::cin >> input;
-      n[i] = static_cast<unsigned char>(input);
+      n[i] = static_cast<unsigned char>(input);//std::transform
     }
 
     auto answer = p1.Ask(n);
@@ -50,7 +50,7 @@ int main() {
   std::cout << "Enter your number" << std::endl;
   for (int i = 0; i < 4; i++) {
     std::cin >> input;
-    n[i] = static_cast<unsigned char>(input);
+    n[i] = static_cast<unsigned char>(input);//std::transform
   }
   CowsAndBullsLivePlayer p2(n);
   do {
@@ -73,7 +73,7 @@ int main() {
   std::cout << "Enter your number" << std::endl;
   for (int i = 0; i < 4; i++) {
     std::cin >> input;
-    n[i] = static_cast<unsigned char>(input);
+    n[i] = static_cast<unsigned char>(input);//std::transform
   }
   CowsAndBullsLivePlayer p3(n);
   

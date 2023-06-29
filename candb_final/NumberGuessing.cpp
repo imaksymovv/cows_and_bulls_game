@@ -343,7 +343,7 @@ CowsAndBullsComputerHelper NumberGuessing::computer_guessing(
 
     if (answer.cows == 0 && bull_founded == false && cows_founded == false &&
         start_substitution == false) {
-      for (size_t i = 0; i < 4; i++) {
+      for (size_t i = 0; i < 4; i++) {//for_each
         if (founded_bulls[i] != 1) {
           index_for_false_numbers = pc_number.computer_number[i] - 1;
           false_numbers[index_for_false_numbers] = true;
